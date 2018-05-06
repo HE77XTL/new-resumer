@@ -33,11 +33,10 @@ export default {
           experience:[
             {compony: 'xxx',workContent:'yyy'}
           ],
-          skill: {
-            skill_1: 'xxx',
-            skill_2: 'yyy',
-            skill_3: 'zzz'
-          }
+          skill: [
+            {skill:'html'},
+            {skill:'css'}
+          ]
         }
       }
     }

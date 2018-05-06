@@ -1,12 +1,8 @@
 <template>
 	<div class="skill">
-		<label for="">
-			<p>技能1</p>
-			<input type="text" v-model="resumer.skill.skill_1">		
-		</label>
-		<label for="">
-			<p>技能2</p>
-			<input type="text" v-model="resumer.skill.skill_2">		
+		<label for="" v-for="(item,index) in resumer.skill">
+			<p>技能特长</p>
+			<input type="text" v-model="item.skill">		
 		</label>
 	</div>
 </template>
