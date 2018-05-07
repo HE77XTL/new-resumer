@@ -9,6 +9,7 @@ import Profile from '@/components/Profile'
 import JobIntend from '@/components/JobIntend'
 import Experience from '@/components/Experience'
 import Skill from '@/components/Skill'
+import SignUp from '@/components/SignUp'
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
     	path: '/login',
     	name: 'Login',
     	component: Login
+    },
+    {
+      path: '/signup',
+      name: 'SignUp',
+      component: SignUp
     }
   ]
 })

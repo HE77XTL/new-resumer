@@ -12,7 +12,7 @@ export default {
     return {
       data: {
         userMsg: {
-          useName: 'xiaoming',
+          userName: 'xiaoming',
           email: 'he1234567@qq.com',
           password:'he12345678'
         },
