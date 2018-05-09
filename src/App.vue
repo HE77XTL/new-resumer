@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view v-bind:data="data"></router-view>
-    {{data.resumer}}
+    {{data}}
     <button v-on:click="saveData()">保存</button>
   </div>
 </template>
@@ -14,30 +14,29 @@ export default {
     return {
       data: {
         userMsg: {
-          userName: 'xiaoming',
-          email: 'he1234567@qq.com',
-          password:'he12345678'
+          userName: '',
+          email: ''
         },
         resumer: {
           profile: {
-            name: '小明',
-            phone: 12345678,
-            email: 'he1234567@qq.com',
-            school: '西北工业大学',
-            degree: '本科',
-            major: '能源与动力工程'
+            name: '',
+            phone: '',
+            email: '',
+            school: '',
+            degree: '',
+            major: ''
           },
           jobIntend: {
-            intendPost: '前端工程师',
-            intendCity: '南宁',
-            jobType: '全职'
+            intendPost: '',
+            intendCity: '',
+            jobType: ''          
           },
           experience:[
-            {compony: 'xxx',workContent:'yyy'}
+            {compony: '',workContent:''}
           ],
           skill: [
-            {skill:'html'},
-            {skill:'css'}
+            {skill:''},
+            {skill:''}
           ]
         }
       }
@@ -71,6 +70,9 @@ export default {
   //   console.error(error);
   // });
     }
+  },
+  created: function(){
+    console.log(this.data)
   }
 }
 </script>

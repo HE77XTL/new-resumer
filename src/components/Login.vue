@@ -3,11 +3,11 @@
     <form action="">
       <label for="">
         <p>username</p>
-        <input type="text" v-model="data.userMsg.userName">
+        <input type="text" v-model="userAccount.username">
       </label>
       <label for="">
         <p>password</p>
-        <input type="text" v-model="data.userMsg.password">
+        <input type="text" v-model="userAccount.password">
       </label>
     </form>
     <button v-on:click="login()">login</button>
@@ -28,11 +28,21 @@ AV.init({
 
   export default {
     props: ['data'],
+    data(){
+      return {
+        userAccount: {
+          username: '',
+          password: ''
+        }
+      }
+    },
     methods: {
       login: function(){
-        AV.User.logIn(this.data.userMsg.userName, this.data.userMsg.password).then(function (loginedUser) {
-          console.log(loginedUser);
-          console.log(AV.User.current())
+        let _this = this
+        AV.User.logIn(this.userAccount.username, this.userAccount.password).then(function (loginedUser) {
+            console.log(loginedUser.id);
+            console.log(AV.User.current())
+            _this.$router.push('/editor')
         }, function (error) {
         });
       }
