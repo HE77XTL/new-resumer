@@ -72,7 +72,23 @@ export default {
     }
   },
   created: function(){
+    var APP_ID = 'SJXi3wo2nBxftSkxA7MnpmN7-gzGzoHsz';
+    var APP_KEY = 'YFwSYPN5DFNF39QtTnl9Yer9';
+
+    AV.init({
+      appId: APP_ID,
+      appKey: APP_KEY
+    });
+
     console.log(this.data)
+    // onbeforeunload文档：https://developer.mozilla.org/zh-CN/docs/Web/API/Window/onbeforeunload
+    window.onbeforeunload = ()=>{
+      let dataString = JSON.stringify(this.data) // JSON 文档: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON
+      window.localStorage.setItem('myData', dataString) // 看文档https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage
+    }
+    let oldDataString = window.localStorage.getItem('myData')
+    let oldData = JSON.parse(oldDataString)
+    this.data = oldData || []
   }
 }
 </script>

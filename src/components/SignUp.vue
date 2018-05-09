@@ -11,7 +11,7 @@
       </label>
       <label for="">
         <p>password</p>
-        <input type="text" v-model="userAccount.password">
+        <input type="text">
       </label>
     </form>
     <button v-on:click="signUp()">signup</button>
