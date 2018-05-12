@@ -11,7 +11,7 @@
       </label>
       <label for="">
         <p>password</p>
-        <input type="text">
+        <input type="text" v-model="userAccount.password">
       </label>
     </form>
     <button v-on:click="signUp()">signup</button>
@@ -30,10 +30,43 @@ import AV from 'leancloud-storage'
           name: '',
           email: '',
           password: ''
+        },
+        initData: {
+          userMsg: {
+            userName: '',
+            email: '',
+            lock: false,
+            id: ''
+          },
+          resumer: {
+            profile: {
+              name: '',
+              phone: '',
+              email: '',
+              school: '',
+              degree: '',
+              major: ''
+            },
+            jobIntend: {
+              intendPost: '',
+              intendCity: '',
+              jobType: ''          
+            },
+            experience:[
+              {compony: '',workContent:''}
+            ],
+            skill: [
+              {skill:''},
+              {skill:''}
+            ]
+          }
         }
       }
     },
     methods: {
+      newUser: function(){
+        this.$emit('newuser')
+      },
       signUp: function(){
         var _this = this
         // 新建 AVUser 对象实例
@@ -48,6 +81,7 @@ import AV from 'leancloud-storage'
             console.log(loginedUser);
             _this.data.userMsg.userName = _this.userAccount.name;
             _this.data.userMsg.email = _this.userAccount.email;
+            _this.data.userMsg.lock = true
 
             var json_data=JSON.stringify(_this.data)           
             console.log(json_data)
@@ -62,7 +96,11 @@ import AV from 'leancloud-storage'
             resumer.set('priority',1);
             resumer.save().then(function (resumer) {             
               console.log(resumer)
+              _this.data.userMsg.id = resumer.id
               _this.$router.push('/editor')
+              console.log(_this.initData)
+              console.log(_this.data)
+              _this.newUser()
             }, function (error) {
               console.error(error);
             });

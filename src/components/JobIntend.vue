@@ -10,7 +10,7 @@
 		</label>
 		<label for="">
 			<p>职业类型</p>
-			<el-select v-model="value" placeholder="请选择">
+			<el-select v-model="resumer.jobIntend.jobType" placeholder="请选择">
 			<el-option
 			  v-for="item in options"
 			  :key="item.value"
@@ -27,16 +27,16 @@
 	    data() {
 	      return {
 	        options: [{
-	          value: '选项1',
+	          value: '全职',
 	          label: '全职'
 	        }, {
-	          value: '选项2',
+	          value: '兼职',
 	          label: '兼职'
 	        }, {
-	          value: '选项3',
+	          value: '实习',
 	          label: '实习'
 	        }],
-	        value: ''
+	        value: this.resumer.jobIntend.jobType
 	      }
 	    }
 	}

@@ -18,14 +18,6 @@
 <script>
 import AV from 'leancloud-storage'
 
-// var APP_ID = 'SJXi3wo2nBxftSkxA7MnpmN7-gzGzoHsz';
-// var APP_KEY = 'YFwSYPN5DFNF39QtTnl9Yer9';
-
-// AV.init({
-//   appId: APP_ID,
-//   appKey: APP_KEY
-// });
-
   export default {
     props: ['data'],
     data(){
@@ -40,19 +32,31 @@ import AV from 'leancloud-storage'
       login: function(){
         let _this = this
         AV.User.logIn(this.userAccount.username, this.userAccount.password).then(function (loginedUser) {
+            _this.data.userMsg.lock = true
             console.log(loginedUser.id);
             console.log(AV.User.current())
 
             var query = new AV.Query('Resumer');
             query.equalTo('userID', loginedUser.id);
             query.find().then(function (results) {
-              console.log(results[0].attributes)
-            }, function (error) {
-            });
+              
+                console.log(results[0])
+                _this.data.userMsg.id = results[0].id
+                var he = JSON.parse(results[0].attributes.userData)
+              
+                _this.changeData(he)
+
+               }, function (error) {
+             });
 
             _this.$router.push('/editor')
         }, function (error) {
         });
+        this.data = _this.data
+      },
+      changeData: function(he){
+        console.log(he)
+        this.data.resumer = he.resumer
       }
     }
   }

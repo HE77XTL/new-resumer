@@ -6,8 +6,17 @@ import router from './router'
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import 'normalize.css'
+import '@/assets/reset.scss'
 
+import AV from 'leancloud-storage'
+var APP_ID = 'SJXi3wo2nBxftSkxA7MnpmN7-gzGzoHsz';
+var APP_KEY = 'YFwSYPN5DFNF39QtTnl9Yer9';
 
+AV.init({
+  appId: APP_ID,
+  appKey: APP_KEY
+});
 
 
 Vue.use(ElementUI);
@@ -21,3 +30,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+

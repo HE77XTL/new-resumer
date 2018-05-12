@@ -1,9 +1,9 @@
 <template>
 	<div class="editor">
-		<Topbar></Topbar>
+		<Topbar v-bind:userMsg="data.userMsg"></Topbar>
 		<div class="resumer">
 			<ResumeEdit class="resumeLeft" v-bind:resumer="data.resumer"></ResumeEdit>
-			<ResumePreview class="resumeRight"></ResumePreview>
+			<ResumePreview class="resumeRight" v-bind:resumer="data.resumer"></ResumePreview>
 		</div>
 	</div>
 </template>
@@ -21,6 +21,7 @@ import ResumePreview from '@/components/ResumePreview'
 <style lang="scss">
 	.resumer {
 		display: flex;
+		min-width: 800px;
 
 		.resumeLeft {
 			width: 40%;

@@ -13,6 +13,7 @@
     "element-ui": "^2.3.7",
     "leancloud-storage": "^3.6.8",
     "node-sass": "^4.9.0",
+    "normalize.css": "^8.0.0",
     "sass-loader": "^7.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
