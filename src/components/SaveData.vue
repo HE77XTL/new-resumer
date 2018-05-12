@@ -13,11 +13,11 @@ import AV from 'leancloud-storage'
 				console.log(123)
 			var json_data=JSON.stringify(this.data)
 			// 第一个参数是 className，第二个参数是 objectId
-			var todo = AV.Object.createWithoutData('Resumer', this.data.userMsg.id);
+			var resumer = AV.Object.createWithoutData('Resumer', this.data.userMsg.id);
 			// 修改属性
-			todo.set('userData', json_data);
+			resumer.set('userData', json_data);
 			// 保存到云端
-			todo.save();				
+			resumer.save();				
 		}
 		}
 	}

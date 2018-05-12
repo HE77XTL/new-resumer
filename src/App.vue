@@ -93,6 +93,9 @@ export default {
     newuser: function(){
       console.log(11112121123)
       this.data_he = this.initData
+    },
+    logindata: function(){
+      console.log('hahah')
     }
   }
 }

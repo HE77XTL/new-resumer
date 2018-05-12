@@ -29,6 +29,10 @@ import AV from 'leancloud-storage'
       }
     },
     methods: {
+      loginData: function(data){
+        console.log('kkk')
+        this,$emit('newuser')
+      },
       login: function(){
         let _this = this
         AV.User.logIn(this.userAccount.username, this.userAccount.password).then(function (loginedUser) {
@@ -42,8 +46,7 @@ import AV from 'leancloud-storage'
               
                 console.log(results[0])
                 _this.data.userMsg.id = results[0].id
-                var he = JSON.parse(results[0].attributes.userData)
-              
+                var he = JSON.parse(results[0].attributes.userData)              
                 _this.changeData(he)
 
                }, function (error) {

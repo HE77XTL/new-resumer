@@ -5,8 +5,7 @@
 			<p>hello</p>
 			<div class="nav">
 				<router-link to="/preview"><button>预览</button></router-link>
-				<router-link to="/preview"><button v-on:click="userSave()">保存</button></router-link>
-				<router-link to="/login"><button>退出</button></router-link>
+				<router-link to="/"><button v-on:click="userQuit()">退出</button></router-link>
 			</div>
 		</div>
 		<div class="topbar" v-bind:class="{ 'active': !isActive }">
@@ -17,21 +16,28 @@
 				<router-link to="/preview"><button>预览</button></router-link>
 				<router-link to="/preview"><button v-on:click="userSave()">保存</button></router-link>
 			</div>
-		</div>
-		<button v-on:click="userSave()">save</button>	
+		</div>	
 	</div>
 </template>
 <script>
+import SaveData from '@/components/SaveData'
+import AV from 'leancloud-storage'
 	export default {
 		props: ['userMsg'],
+		components: {
+			SaveData
+		},
 		data(){
 			return {
 				isActive: this.userMsg.lock
 			}
 		},
 		methods: {
-			userSave: function(){
-				console.log(123)
+			userQuit: function(){
+				console.log('qquit')
+				AV.User.logOut();
+				window.localStorage.clear()
+				this.$emit('newuser')
 			}
 		}
 	}

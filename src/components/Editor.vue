@@ -1,6 +1,6 @@
 <template>
 	<div class="editor">
-		<Topbar v-bind:userMsg="data.userMsg"></Topbar>
+		<Topbar v-bind:userMsg="data.userMsg" v-on:newuser="newuser()"></Topbar>
 		<div class="resumer">
 			<ResumeEdit class="resumeLeft" v-bind:resumer="data.resumer"></ResumeEdit>
 			<ResumePreview class="resumeRight" v-bind:resumer="data.resumer"></ResumePreview>
@@ -15,6 +15,12 @@ import ResumePreview from '@/components/ResumePreview'
 		props: ['data'],
 		components:{
 			Topbar,ResumeEdit,ResumePreview
+		},
+		methods: {
+		newuser: function(){
+		      console.log('kkkjkj')
+		      this.$emit('newuser')
+		    }
 		}
 	}
 </script>
