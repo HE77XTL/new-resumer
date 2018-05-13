@@ -1,4 +1,5 @@
 <template>
+<div class="loginWrap">
   <div class="login">
     <form action="">
       <label for="">
@@ -11,8 +12,9 @@
       </label>
     </form>
     <button v-on:click="login()">login</button>
-    {{data}}
   </div>
+</div>
+
 </template>
 
 <script>
@@ -64,3 +66,18 @@ import AV from 'leancloud-storage'
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  
+  .loginWrap {
+    min-width: 500px;
+    display: flex;
+    align-items: center;
+  }
+  .login {
+    border: solid 1px #ccc;
+    width: 500px;
+    text-align: center;
+    margin:  auto;
+  }  
+</style>

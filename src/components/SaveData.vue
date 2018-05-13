@@ -12,7 +12,6 @@ import AV from 'leancloud-storage'
 		methods: {
 			saveData: function(){
 				console.log(123)
-				
 			var json_data=JSON.stringify(this.data)
 			// 第一个参数是 className，第二个参数是 objectId
 			var resumer = AV.Object.createWithoutData('Resumer', this.data.userMsg.id);
