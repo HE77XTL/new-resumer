@@ -21,7 +21,8 @@ export default {
           userName: '',
           email: '',
           lock: false,
-          id: ''
+          id: '',
+          notLogin: true
         },
         resumer: {
           profile: {
@@ -51,7 +52,8 @@ export default {
           userName: '',
           email: '',
           lock: false,
-          id: ''
+          id: '',
+          notLogin: true
         },
         resumer: {
           profile: {
@@ -79,10 +81,15 @@ export default {
     }
   },
   created(){
-    if(this.$route.path == '/'){
-      console.log(this.$route.path)
-      // this.isEditor = false
-    }
+     var currentUser = AV.User.current();
+     if(currentUser){
+        console.log(currentUser.attributes.username)
+        console.log(this.data_he.userMsg.userName)
+        this.data_he.userMsg.notLogin = false
+        this.data_he.userMsg.userName =  currentUser.attributes.username
+        console.log(this.data_he.userMsg.userName)
+     }
+
     window.onbeforeunload = ()=>{
       var dataString = JSON.stringify(this.data_he)
       window.localStorage.setItem('heData', dataString)
@@ -93,14 +100,28 @@ export default {
   },
   methods: {
     newuser: function(){
+      var currentUser = AV.User.current();
       console.log(11112121123)
       this.data_he = this.initData
+      if(AV.User.current()){
+        this.data_he.userMsg.notLogin = false
+         this.data_he.userMsg.userName =  currentUser.attributes.username
+      }
     },
     logindata: function(){
       console.log('hahah')
     },
     saveData: function(){
       alert(456)
+      var currentUser = AV.User.current();
+      console.log(currentUser)
+      var json_data=JSON.stringify(this.data_he)
+      // 第一个参数是 className，第二个参数是 objectId
+      var resumer = AV.Object.createWithoutData('Resumer', this.data_he.userMsg.id);
+      // 修改属性
+      resumer.set('userData', json_data);
+      // 保存到云端
+      resumer.save();
     }
   }
 }

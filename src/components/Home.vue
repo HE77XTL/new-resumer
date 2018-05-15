@@ -3,8 +3,8 @@
 		<h2>
 			Welcome to Resumer
 		</h2>
-		<p>
-			<router-link to="/editor" class="buildNew">create a new resume</router-link>
+		<p v-on:click="newResumer()">
+			<router-link to="/editor" class="buildNew" >create a new resume</router-link>
 		</p>
 		<div class="nav">
 			<router-link to="/login" class="btn">登陆</router-link>
@@ -15,8 +15,11 @@
 </template>
 <script>
 	export default {
-		created(){
-			// console.log(this.$route.path)
+		methods: {
+			newResumer: function(){
+				console.log('newResumer')
+				this.$emit('newuser')
+			}
 		}
 	}
 </script>

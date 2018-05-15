@@ -2,8 +2,9 @@
 	<div class="editor">
 		<div class="topBar">
 			<h2>RESUMER</h2>
-			<router-link to="/login"><button class="login">login</button></router-link>
-			<router-link to="/signup"><button class="signup">signup</button></router-link>
+			{{data.userMsg.userName}}
+			<router-link to="/login" v-show="data.userMsg.notLogin"><button class="login">login</button></router-link>
+			<router-link to="/signup" v-show="data.userMsg.notLogin"><button class="signup">signup</button></router-link>
 			<router-link to="/preview"><button class="preview">preview</button></router-link>
 			<button class="save" v-on:click="saveData()">save</button>	
 		</div>

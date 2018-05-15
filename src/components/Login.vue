@@ -31,10 +31,6 @@ import AV from 'leancloud-storage'
       }
     },
     methods: {
-      loginData: function(data){
-        console.log('kkk')
-        this.$emit('newuser')
-      },
       login: function(){
         let _this = this
         AV.User.logIn(this.userAccount.username, this.userAccount.password).then(function (loginedUser) {
