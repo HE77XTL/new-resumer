@@ -1,6 +1,12 @@
 <template>
 	<div class="editor">
-		<Topbar v-bind:userMsg="data.userMsg" v-on:newuser="newuser()"></Topbar>
+		<div class="topBar">
+			<h2>RESUMER</h2>
+			<router-link to="/login"><button class="login">login</button></router-link>
+			<router-link to="/signup"><button class="signup">signup</button></router-link>
+			<router-link to="/preview"><button class="preview">preview</button></router-link>
+			<button class="save" v-on:click="saveData()">save</button>	
+		</div>
 		<div class="resumer">
 			<ResumeEdit class="resumeLeft" v-bind:resumer="data.resumer"></ResumeEdit>
 			<ResumePreview class="resumeRight" v-bind:resumer="data.resumer"></ResumePreview>
@@ -17,10 +23,10 @@ import ResumePreview from '@/components/ResumePreview'
 			Topbar,ResumeEdit,ResumePreview
 		},
 		methods: {
-		newuser: function(){
-		      console.log('kkkjkj')
-		      this.$emit('newuser')
-		    }
+			saveData: function(){
+				alert(123)
+				this.$emit('saveData')
+			}
 		}
 	}
 </script>

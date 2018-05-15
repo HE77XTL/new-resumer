@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <router-view v-bind:data="data_he" v-on:newuser="newuser()"></router-view>
-    <SaveData v-bind:data="data_he" v-show="isHome"></SaveData>
-
+    <router-view v-bind:data="data_he" v-on:newuser="newuser()" v-on:saveData="saveData()"></router-view>
   </div>
 </template>
 
@@ -17,7 +15,7 @@ export default {
   },
   data(){
     return {
-      isHome: true,
+      isEditor: false,
       data_he: {
         userMsg: {
           userName: '',
@@ -82,7 +80,8 @@ export default {
   },
   created(){
     if(this.$route.path == '/'){
-      this.isHome = false
+      console.log(this.$route.path)
+      // this.isEditor = false
     }
     window.onbeforeunload = ()=>{
       var dataString = JSON.stringify(this.data_he)
@@ -99,6 +98,9 @@ export default {
     },
     logindata: function(){
       console.log('hahah')
+    },
+    saveData: function(){
+      alert(456)
     }
   }
 }

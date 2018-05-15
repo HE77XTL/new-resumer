@@ -65,6 +65,7 @@ import AV from 'leancloud-storage'
     },
     methods: {
       newUser: function(){
+        console.log('aaa')
         this.$emit('newuser')
       },
       signUp: function(){

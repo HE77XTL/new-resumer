@@ -33,7 +33,7 @@ import AV from 'leancloud-storage'
     methods: {
       loginData: function(data){
         console.log('kkk')
-        this,$emit('newuser')
+        this.$emit('newuser')
       },
       login: function(){
         let _this = this
@@ -71,8 +71,8 @@ import AV from 'leancloud-storage'
   
   .loginWrap {
     min-width: 500px;
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
   }
   .login {
     border: solid 1px #ccc;
