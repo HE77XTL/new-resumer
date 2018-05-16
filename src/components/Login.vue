@@ -15,7 +15,10 @@
         <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-mima"></use>
         </svg>
-        <input type="password" v-model="userAccount.password">
+        <input :type="inputType" v-model="userAccount.password">
+        <svg class="icon canView" aria-hidden="true" v-on:click="typeChange()">
+              <use  :xlink:href="typeSwitch?'#icon-htmal5icon09':'#icon-iconfont32pxmimabukejian'"></use>
+        </svg>
       </div>
     </form>
     <button v-on:click="login()">登陆</button>
@@ -31,6 +34,8 @@ import AV from 'leancloud-storage'
     props: ['data'],
     data(){
       return {
+        typeSwitch: false,
+        inputType: 'password',
         userAccount: {
           username: '',
           password: ''
@@ -38,6 +43,15 @@ import AV from 'leancloud-storage'
       }
     },
     methods: {
+      typeChange: function(){
+        if(this.inputType === 'text'){
+          this.inputType = 'password'
+          this.typeSwitch = false
+        }else {
+          this.inputType = 'text'
+          this.typeSwitch = true
+        }
+      },
       login: function(){
         let _this = this
         AV.User.logIn(this.userAccount.username, this.userAccount.password).then(function (loginedUser) {
@@ -133,6 +147,9 @@ import AV from 'leancloud-storage'
     .password {
       border-bottom: 1px solid rgb(200,200,200);
       border-radius: 0 0 8px 8px;
+    }
+    .canView {
+      cursor: pointer;
     }
 
     button {

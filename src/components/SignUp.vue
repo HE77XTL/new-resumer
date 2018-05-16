@@ -21,10 +21,10 @@
           <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-mima"></use>
           </svg>
-          <input v-bind:style="inputStyle" v-model="userAccount.password">
-          <svg class="icon canView" aria-hidden="true">
-              <use xlink:href="#icon-htmal5icon09"></use>
-          </svg>
+          <input :type="inputType" v-model="userAccount.password">
+          <svg class="icon canView" aria-hidden="true" v-on:click="typeChange()">
+              <use  :xlink:href="typeSwitch?'#icon-htmal5icon09':'#icon-iconfont32pxmimabukejian'"></use>
+        </svg>
         </div>
       </form>
       <button v-on:click="signUp()">注册</button>     
@@ -40,10 +40,8 @@ import AV from 'leancloud-storage'
     props: ['data'],
     data(){
       return {
-        inputStyle: {
-          color: 'red',
-          type: 'password'
-        },
+        typeSwitch: false,
+        inputType: 'password',
         userAccount: {
           name: '',
           email: '',
@@ -82,6 +80,15 @@ import AV from 'leancloud-storage'
       }
     },
     methods: {
+      typeChange: function(){
+        if(this.inputType === 'text'){
+          this.inputType = 'password'
+          this.typeSwitch = false
+        }else {
+          this.inputType = 'text'
+          this.typeSwitch = true
+        }
+      },
       newUser: function(){
         console.log('aaa')
         this.$emit('newuser')
