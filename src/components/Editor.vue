@@ -2,11 +2,17 @@
 	<div class="editor">
 		<div class="topBar">
 			<h2>RESUMER</h2>
-			{{data.userMsg.userName}}
-			<router-link to="/login" v-show="data.userMsg.notLogin"><button class="login">login</button></router-link>
-			<router-link to="/signup" v-show="data.userMsg.notLogin"><button class="signup">signup</button></router-link>
-			<router-link to="/preview"><button class="preview">preview</button></router-link>
-			<button class="save" v-on:click="saveData()">save</button>	
+			<p>hello {{data.userMsg.userName}}</p>
+			<router-link to="/login" v-show="data.userMsg.notLogin">
+				<button class="login btn">登陆</button>
+			</router-link>
+			<router-link to="/signup" v-show="data.userMsg.notLogin">
+				<button class="signup btn">注册</button>
+			</router-link>
+			<router-link to="/preview">
+				<button class="preview btn">预览</button>
+			</router-link>
+			<button class="save btn" v-on:click="saveData()">保存</button>	
 		</div>
 		<div class="resumer">
 			<ResumeEdit class="resumeLeft" v-bind:resumer="data.resumer"></ResumeEdit>
@@ -31,18 +37,43 @@ import ResumePreview from '@/components/ResumePreview'
 		}
 	}
 </script>
-<style lang="scss">
-	.resumer {
+<style lang="scss" scoped>
+//导航栏
+.editor {
+	min-width: 800px;
+	.topBar {
 		display: flex;
-		min-width: 800px;
+		align-items: center;
+		justify-content: space-between;
+		padding: 5px;
+		h2 {
+			flex: 3;
+		}
+		p {
+			flex: 1;
+			text-align: center;
+		}
+		.btn {
+			padding: 5px;
+			outline: none;
+		}
 
-		.resumeLeft {
-			width: 40%;
-			border: 1px solid #ccc;
-		}
-		.resumeRight {
-			width: 60%;
-			border: 1px solid #ccc;
-		}
 	}
+}
+
+//编辑框
+.resumer {
+	display: flex;
+	width: 100%;
+	padding: 5px;
+
+	.resumeLeft {
+		width: 40%;
+		border: 1px solid #ccc;
+	}
+	.resumeRight {
+		width: 60%;
+		border: 1px solid #ccc;
+	}
+}
 </style>
