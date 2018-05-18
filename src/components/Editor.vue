@@ -40,6 +40,7 @@ import ResumePreview from '@/components/ResumePreview'
 <style lang="scss" scoped>
 //导航栏
 .editor {
+
 	min-width: 800px;
 	.topBar {
 		display: flex;
@@ -63,15 +64,15 @@ import ResumePreview from '@/components/ResumePreview'
 
 //编辑框
 .resumer {
+	border: 1px solid #ccc;
 	display: flex;
 	width: 100%;
-	padding: 5px;
-
+	padding-top: 16px;
 	.resumeLeft {
 		width: 40%;
-		border: 1px solid #ccc;
 	}
 	.resumeRight {
+		margin-left: 20px;
 		width: 60%;
 		border: 1px solid #ccc;
 	}

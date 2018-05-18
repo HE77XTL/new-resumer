@@ -26,12 +26,12 @@ export default {
         },
         resumer: {
           profile: {
-            name: '',
-            phone: '',
-            email: '',
-            school: '',
-            degree: '',
-            major: ''
+            name: ['',"姓名"],
+            phone: ['',"电话"],
+            email: ['',"邮箱"],
+            school: ['',"学校"],
+            degree: ['',"学历"],
+            major: ['',"专业"]
           },
           jobIntend: {
             intendPost: '',
@@ -57,12 +57,12 @@ export default {
         },
         resumer: {
           profile: {
-            name: '',
-            phone: '',
-            email: '',
-            school: '',
-            degree: '',
-            major: ''
+            name: ['',"姓名"],
+            phone: ['',"电话"],
+            email: ['',"邮箱"],
+            school: ['',"学校"],
+            degree: ['',"学历"],
+            major: ['',"专业"]
           },
           jobIntend: {
             intendPost: '',

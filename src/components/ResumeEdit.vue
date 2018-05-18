@@ -2,28 +2,11 @@
 	<div class="resumeEdit">
 		<div class="navTab">
 			<ul>
-
-
 				<li v-bind:class="{ active: navData.isActive[index]}" v-for="(item,index) in navData.routers" v-on:click="changeNav(index)"><router-link :to="navData.routers[index]">
 			        <svg class="icon" aria-hidden="true">
 			            <use :xlink:href="navData.href[index]"></use>
 			        </svg>					
 				</router-link></li>
-				<!-- <li><router-link to="/editor/jobintend">
-					<svg class="icon" aria-hidden="true">
-			            <use xlink:href="#icon-chaxunzhiwei"></use>
-			        </svg>
-				</router-link></li>
-				<li><router-link to="/editor/experience">
-					<svg class="icon" aria-hidden="true">
-			            <use xlink:href="#icon-icexperience"></use>
-			        </svg>
-				</router-link></li>
-				<li><router-link to="/editor/skill">
-					<svg class="icon" aria-hidden="true">
-			            <use xlink:href="#icon-qunfengxingquaihao"></use>
-			        </svg>
-				</router-link></li> -->
 			</ul>
 		</div>
 		<router-view class="EditTemplate" v-bind:resumer="resumer"></router-view>
@@ -68,7 +51,7 @@
   }
 	.resumeEdit {
 		display: flex;
-		padding-top: 8px;
+		
 		.navTab {
 			ul {
 				background: #2b2424;
@@ -99,6 +82,8 @@
 			padding-left: 30px;
 			border: 1px solid #ccc;
 			margin-left: 10px;
+			border-radius: 4px;
+			padding-top: 5px;
 
 		}
 	}	

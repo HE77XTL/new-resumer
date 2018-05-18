@@ -6,21 +6,21 @@
 				<tbody>
 					<tr>
 						<td>姓名:</td>
-						<td>{{resumer.profile.name}}</td>
+						<td>{{resumer.profile.name[0]}}</td>
 						<td>电话:</td>
-						<td>{{resumer.profile.phone}}</td>
+						<td>{{resumer.profile.phone[0]}}</td>
 					</tr>
 					<tr>
 						<td>邮箱:</td>
-						<td>{{resumer.profile.email}}</td>
+						<td>{{resumer.profile.email[0]}}</td>
 						<td>学校:</td>
-						<td>{{resumer.profile.school}}</td>
+						<td>{{resumer.profile.school[0]}}</td>
 					</tr>
 					<tr>
 						<td>学历:</td>
-						<td>{{resumer.profile.degree}}</td>
+						<td>{{resumer.profile.degree[0]}}</td>
 						<td>专业:</td>
-						<td>{{resumer.profile.major}}</td>
+						<td>{{resumer.profile.major[0]}}</td>
 					</tr>
 				</tbody>
 			</table>			

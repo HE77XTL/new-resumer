@@ -1,14 +1,14 @@
 <template>
 	<div class="jobIntend">
-		<label for="">
+		<div>
 			<p>意向岗位</p>
 			<input type="text" v-model="resumer.jobIntend.intendPost">		
-		</label>
-		<label for="">
+		</div>
+		<div>
 			<p>意向城市</p>
 			<input type="text" v-model="resumer.jobIntend.intendCity">		
-		</label>
-		<label for="">
+		</div>
+		<div id="jobChoose">
 			<p>职业类型</p>
 			<el-select v-model="resumer.jobIntend.jobType" placeholder="请选择">
 			<el-option
@@ -18,7 +18,7 @@
 			  :value="item.value">
 			</el-option>
 			</el-select>	
-		</label>
+		</div>
 	</div>
 </template>
 <script>
@@ -41,3 +41,25 @@
 	    }
 	}
 </script>
+
+<style lang="scss" scoped>
+	.jobIntend {
+		div {
+			padding-bottom: 32px;
+			position: relative;
+		}
+		p {
+			font-size: 14px;
+			line-height: 20px;
+			padding-bottom: 4px;
+		}
+		input {
+			outline: none;
+			border: none;
+			border-bottom: 1px solid #ccc;
+			font-size: 14px;
+			line-height: 20px;
+			width: 215px;
+		}
+	}
+</style>

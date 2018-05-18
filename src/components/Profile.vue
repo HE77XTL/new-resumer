@@ -1,29 +1,9 @@
 <template>
 	<div class="profile">
-		<label for="">
-			<p>姓名</p>
-			<input type="text" v-model="resumer.profile.name">		
-		</label>
-		<label for="">
-			<p>电话</p>
-			<input type="text" v-model='resumer.profile.phone'>		
-		</label>
-		<label for="">
-			<p>邮箱</p>
-			<input type="text" v-model="resumer.profile.email">		
-		</label>
-		<label for="">
-			<p>学校</p>
-			<input type="text" v-model="resumer.profile.school">		
-		</label>
-		<label for="">
-			<p>学历</p>
-			<input type="text" v-model="resumer.profile.degree">		
-		</label>
-		<label for="">
-			<p>专业</p>
-			<input type="text" v-model="resumer.profile.major">		
-		</label>
+		<div v-for="(value,key,index) in resumer.profile">
+			<p>{{resumer.profile[key][1]}}</p>
+			<input type="text" v-model="resumer.profile[key][0]">
+		</div>
 	</div>
 </template>
 <script>
@@ -31,3 +11,36 @@
 		props:['resumer']
 	}
 </script>
+
+<style lang="scss" scoped>
+	.profile {
+		div {
+			padding-bottom: 32px;
+			position: relative;
+			// &::after {
+			// 	display: block;
+			// 	content: '';
+			// 	width: 20px;
+			// 	height: 40px;
+			// 	border: 1px solid #ccc;
+			// 	border-width: 0 0 0 1px;
+			// 	position: absolute;
+			// 	top: 0;
+			// 	left: 0;
+			// }
+		}
+		p {
+			font-size: 14px;
+			line-height: 20px;
+			padding-bottom: 4px;
+		}
+		input {
+			outline: none;
+			border: none;
+			border-bottom: 1px solid #ccc;
+			font-size: 14px;
+			line-height: 20px;
+			width: 240px;
+		}
+	}
+</style>

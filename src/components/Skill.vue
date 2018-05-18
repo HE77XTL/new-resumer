@@ -1,10 +1,10 @@
 <template>
 	<div class="skill">
-		<label for="" v-for="(item, index) in resumer.skill">
+		<div v-for="(item, index) in resumer.skill">
 			<p>技能</p>
 			<input type="text" v-model="item.skill">	
 			<button v-on:click="removeSkill(index)">x</button>
-		</label>
+		</div>
 		<hr>
 		<button v-on:click="addSkill()">增加</button>
 	</div>
@@ -22,3 +22,36 @@
 		}
 	}
 </script>
+
+<style lang="scss" scoped>
+	.skill {
+		div {
+			padding-bottom: 32px;
+			position: relative;
+			// &::after {
+			// 	display: block;
+			// 	content: '';
+			// 	width: 20px;
+			// 	height: 40px;
+			// 	border: 1px solid #ccc;
+			// 	border-width: 0 0 0 1px;
+			// 	position: absolute;
+			// 	top: 0;
+			// 	left: 0;
+			// }
+		}
+		p {
+			font-size: 14px;
+			line-height: 20px;
+			padding-bottom: 4px;
+		}
+		input {
+			outline: none;
+			border: none;
+			border-bottom: 1px solid #ccc;
+			font-size: 14px;
+			line-height: 20px;
+			width: 186px;
+		}
+	}
+</style>
