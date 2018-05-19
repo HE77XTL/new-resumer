@@ -79,11 +79,7 @@
 		}
 		.EditTemplate {
 			flex: 1;
-			padding-left: 30px;
-			border: 1px solid #ccc;
-			margin-left: 10px;
-			border-radius: 4px;
-			padding-top: 5px;
+
 
 		}
 	}	

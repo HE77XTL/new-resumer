@@ -1,10 +1,13 @@
 <template>
+<div>
 	<div class="profile">
 		<div v-for="(value,key,index) in resumer.profile">
 			<p>{{resumer.profile[key][1]}}</p>
 			<input type="text" v-model="resumer.profile[key][0]">
 		</div>
-	</div>
+	</div>	
+</div>
+
 </template>
 <script>
 	export default {
@@ -14,20 +17,14 @@
 
 <style lang="scss" scoped>
 	.profile {
+		padding-left: 30px;
+		border: 1px solid #ccc;
+		margin-left: 10px;
+		border-radius: 4px;
+		padding-top: 5px;
 		div {
 			padding-bottom: 32px;
 			position: relative;
-			// &::after {
-			// 	display: block;
-			// 	content: '';
-			// 	width: 20px;
-			// 	height: 40px;
-			// 	border: 1px solid #ccc;
-			// 	border-width: 0 0 0 1px;
-			// 	position: absolute;
-			// 	top: 0;
-			// 	left: 0;
-			// }
 		}
 		p {
 			font-size: 14px;
@@ -41,6 +38,7 @@
 			font-size: 14px;
 			line-height: 20px;
 			width: 240px;
+			border-radius:0px;
 		}
 	}
 </style>

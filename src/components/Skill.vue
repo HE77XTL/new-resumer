@@ -1,13 +1,16 @@
 <template>
+<div>
 	<div class="skill">
 		<div v-for="(item, index) in resumer.skill">
 			<p>技能</p>
 			<input type="text" v-model="item.skill">	
-			<button v-on:click="removeSkill(index)">x</button>
+			<button class="removeBtn" v-on:click="removeSkill(index)">x</button>
 		</div>
 		<hr>
-		<button v-on:click="addSkill()">增加</button>
-	</div>
+		<button class="addBtn" v-on:click="addSkill()">增加</button>
+	</div>	
+</div>
+
 </template>
 <script>
 	export default {
@@ -25,20 +28,16 @@
 
 <style lang="scss" scoped>
 	.skill {
+		padding-bottom: 32px;
+		padding-left: 30px;
+		border: 1px solid #ccc;
+		margin-left: 10px;
+		border-radius: 4px;
+		padding-top: 5px;
+		padding-right: 8px;
 		div {
 			padding-bottom: 32px;
 			position: relative;
-			// &::after {
-			// 	display: block;
-			// 	content: '';
-			// 	width: 20px;
-			// 	height: 40px;
-			// 	border: 1px solid #ccc;
-			// 	border-width: 0 0 0 1px;
-			// 	position: absolute;
-			// 	top: 0;
-			// 	left: 0;
-			// }
 		}
 		p {
 			font-size: 14px;
@@ -51,7 +50,23 @@
 			border-bottom: 1px solid #ccc;
 			font-size: 14px;
 			line-height: 20px;
-			width: 186px;
+			width: 215px;
 		}
+		.content {
+			margin-top: 16px;			
+		}
+		textarea {
+			width: 215px;
+		}
+		.removeBtn {
+			position: absolute;
+			right: 8px;
+			bottom: 35px;
+			width: 16px;
+		}
+		.addBtn {
+			margin-top: 16px;
+		}
+
 	}
 </style>

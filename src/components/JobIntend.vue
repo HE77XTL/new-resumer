@@ -1,4 +1,5 @@
 <template>
+<div>
 	<div class="jobIntend">
 		<div>
 			<p>意向岗位</p>
@@ -19,7 +20,9 @@
 			</el-option>
 			</el-select>	
 		</div>
-	</div>
+	</div>	
+</div>
+
 </template>
 <script>
 	export default {
@@ -44,6 +47,11 @@
 
 <style lang="scss" scoped>
 	.jobIntend {
+		padding-left: 30px;
+		border: 1px solid #ccc;
+		margin-left: 10px;
+		border-radius: 4px;
+		padding-top: 5px;
 		div {
 			padding-bottom: 32px;
 			position: relative;
@@ -60,6 +68,7 @@
 			font-size: 14px;
 			line-height: 20px;
 			width: 215px;
+			border-radius: 0;
 		}
 	}
 </style>
