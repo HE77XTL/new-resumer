@@ -28,27 +28,29 @@
 		</div>
 		<hr>
 		<div class="jobIntend">
-			<tr>
-				<td>意向岗位: {{data.resumer.jobIntend.intendPost}}</td>
-				<td>意向城市: {{data.resumer.jobIntend.intendCity}}</td>
-				<td>职业类型: {{data.resumer.jobIntend.jobType}}</td>
-			</tr>			
+			<p>意向岗位: {{data.resumer.jobIntend.intendPost}}</p>
+			<p>意向城市: {{data.resumer.jobIntend.intendCity}}</p>
+			<p>职业类型: {{data.resumer.jobIntend.jobType}}</p>		
 		</div>
+		<hr>
 		<div class="experience">
+			<h3>工作经历</h3>
 			<div class="item" v-for="item in data.resumer.experience">
-				<h3><span>公司名称：</span>{{item.compony}}</h3>
-				<p>工作内容</p>
+				<p><span>公司名称：</span>{{item.compony}}</p>
+				<p>工作内容：</p>
 				<div class="workContent">
 					<p>{{item.workContent}}</p>
 				</div>
 			</div>
 		</div>
+		<hr>
 		<div class="skill">
 			<ul>
 				<li v-for="item in data.resumer.skill"><span>技能：</span>{{item.skill}}</li>
 			</ul>
 		</div>
 	</div>	
+	<router-link to="/editor" class="returnBack">返回</router-link>
 </div>
 
 </template>
@@ -63,13 +65,21 @@
 <style lang="scss" scoped>
 	.previewWrap {
 		width: 794px;
-		height: 1123px;
-		border: 1px solid;
+		min-height: 1123px;
 		margin: 32px auto;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+
 	}
 	.preview{
-		padding: 24px 16px;
+		flex: 1;
+		padding: 45px 60px;
 		font-size: 16px;
+		display: flex;
+		flex-direction: column;
+		box-shadow: -2px 2px 4px 3px #ccc;
+
 	}
 	.profile {
 		tr {
@@ -82,7 +92,7 @@
 		.rowsPro {
 			padding: 5px 0;
 			td:nth-child(even){
-				width: 160px;
+				width: 200px;
 			}
 			td:nth-child(odd){
 				width: 40px;
@@ -92,29 +102,42 @@
 	}
 	.jobIntend {
 		padding: 20px 0;
-		tr {
-			td {
-				font-size: 14px;
-				line-height: 30px;
-				width: 150px;
-				padding-right: 8px;
-				word-wrap: normal;
-				word-break:break-all;
+		display:flex;
+		p {
+			max-width: 200px;
+			margin-right: 60px;
+			position: relative;
+			padding-left: 16px;
+			&::after {
+				display: block;
+				content: '';
+				position: absolute;
+				width: 2px;
+				height: 26px;
+				background: #ccc;
+				top: -3px;
+				left: 0;
 			}
-						
 		}
 	}
 	.experience {
 		word-wrap: normal;
 		word-break:break-all;
-		h3 {
-			padding-bottom: 16px;
+		flex: 2;
+		.item {
 
 		}
+		h3 {
+			padding: 16px 0;
+
+		}
+		p {
+			line-height: 24px;
+		}
 		.workContent {
-			margin-top: 8px;
-			width: 400px;
-			min-height: 100px;
+			margin-bottom: 8px;
+			min-width: 480px;
+			min-height: 200px;
 			border: 1px solid #ccc;
 			padding: 4px;
 			line-height:20px;
@@ -123,6 +146,7 @@
 	}
 	.skill {
 		padding-top: 32px;
+		flex: 1;
 		ul {
 			display: flex;
 			flex-wrap: wrap;
@@ -131,5 +155,14 @@
 				padding: 8px 0;
 			}
 		}
+	}
+	.returnBack {
+		position: absolute;
+		right:20px;
+		top: 20px;
+		padding: 5px;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		background: rgba(7,7,7,0.1)
 	}
 </style>
