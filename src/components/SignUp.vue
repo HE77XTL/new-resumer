@@ -94,6 +94,7 @@ import AV from 'leancloud-storage'
         this.$emit('newuser')
       },
       signUp: function(){
+         AV.User.logOut();
         var _this = this
         // 新建 AVUser 对象实例
         var user = new AV.User();
