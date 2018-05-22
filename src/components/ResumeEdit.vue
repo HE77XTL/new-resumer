@@ -39,6 +39,12 @@
 				})
 
 			}
+		},
+		created(){
+			var _this = this
+			var path = this.$route.path
+			console.log(path)
+			this.$router.push('/editor')
 		}
 	}
 </script>
