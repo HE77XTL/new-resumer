@@ -40,7 +40,7 @@ import ResumePreview from '@/components/ResumePreview'
 <style lang="scss" scoped>
 //导航栏
 .editor {
-
+	
 	min-width: 800px;
 	.topBar {
 		display: flex;
@@ -57,6 +57,11 @@ import ResumePreview from '@/components/ResumePreview'
 		.btn {
 			padding: 5px;
 			outline: none;
+			border: none;
+			border-radius: 4px;
+			margin-left: 4px;
+			cursor: pointer;
+			background-color: rgb(233,233,233);
 		}
 
 	}
@@ -64,17 +69,33 @@ import ResumePreview from '@/components/ResumePreview'
 
 //编辑框
 .resumer {
+	padding: 10px;
 	border: 1px solid #ccc;
 	display: flex;
 	width: 100%;
 	padding-top: 16px;
+	border-radius: 5px;
+	}
 	.resumeLeft {
 		width: 40%;
-	}
+		position:relative;
+
+		// &::after {
+		// display: block;
+		// content: '';
+		// position: absolute;
+		// width: 2px;
+		// height: 200px;
+		// background: #ccc;
+		// top: 20px;
+		// right: -15px;
+		// }
 	.resumeRight {
 		margin-left: 20px;
 		width: 60%;
 		border: 1px solid #ccc;
+		margin-left: 20px;
+		border-radius: 4px;
 	}
 }
 </style>

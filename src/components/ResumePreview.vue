@@ -60,6 +60,10 @@
 	.resumePreview{
 		padding: 5px 10px;
 		font-size: 14px;
+		padding-left: 20px;
+		margin-left: 20px;
+		border:solid #ccc;
+		border-width: 0 0 0 2px;
 	}
 	.profile {
 		tr {
