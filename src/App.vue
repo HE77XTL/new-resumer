@@ -112,9 +112,7 @@ export default {
       console.log('hahah')
     },
     saveData: function(){
-      alert(456)
       var currentUser = AV.User.current();
-      console.log(currentUser)
       var json_data=JSON.stringify(this.data_he)
       // 第一个参数是 className，第二个参数是 objectId
       var resumer = AV.Object.createWithoutData('Resumer', this.data_he.userMsg.id);

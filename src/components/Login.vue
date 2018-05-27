@@ -54,9 +54,12 @@ import AV from 'leancloud-storage'
       },
       login: function(){
         var oldUser = AV.User.current()
-        if(oldUser.attributes.username != this.userAccount.username){
-           AV.User.logOut();
+        if(oldUser){
+          if(oldUser.attributes.username != this.userAccount.username){
+             AV.User.logOut();
+          }          
         }
+
         console.log(oldUser)
         let _this = this
         AV.User.logIn(this.userAccount.username, this.userAccount.password).then(function (loginedUser) {
@@ -74,10 +77,13 @@ import AV from 'leancloud-storage'
                 _this.changeData(he)
 
                }, function (error) {
+                console.log("he-1")
              });
 
             _this.$router.push('/editor')
         }, function (error) {
+          console.log(error)
+          alert("用户名或密码错误")
         });
         this.data = _this.data
       },
