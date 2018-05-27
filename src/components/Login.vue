@@ -54,12 +54,12 @@ import AV from 'leancloud-storage'
       },
       login: function(){
         var oldUser = AV.User.current()
-        if(oldUser){
-          if(oldUser.attributes.username != this.userAccount.username){
-             AV.User.logOut();
-          }          
-        }
-
+        // if(oldUser){
+        //   if(oldUser.attributes.username != this.userAccount.username){
+        //      AV.User.logOut();
+        //   }          
+        // }
+        AV.User.logOut();
         console.log(oldUser)
         let _this = this
         AV.User.logIn(this.userAccount.username, this.userAccount.password).then(function (loginedUser) {
